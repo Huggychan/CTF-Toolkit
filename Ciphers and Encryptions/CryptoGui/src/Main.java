@@ -15,7 +15,8 @@ public class Main extends Application {
     		e.printStackTrace();
     	}
         primaryStage.setTitle("If You're Not First, You're Last");
-        primaryStage.setScene(new Scene(root, 300, 275));
+        Scene scene = new Scene(root, 300, 275);
+        primaryStage.setScene(scene);
         primaryStage.show();
     }
 

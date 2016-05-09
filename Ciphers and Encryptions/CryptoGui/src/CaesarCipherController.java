@@ -1,6 +1,7 @@
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 
 import java.net.URL;
@@ -16,11 +17,36 @@ public class CaesarCipherController implements Initializable {
     @FXML
     private Button doThingButton;
     @FXML
-    private TextArea outputArea;
+    private Label outputArea;
 
-    public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
+    /**
+     * Initialize values
+     * 
+     * @param fxmlFileLocation File location
+     * @param resources Resources
+     */
+    public void initialize(URL fxmlFileLocation,ResourceBundle resources) {
         doThingButton.setOnAction(event -> {
-            System.out.println("command");
+            export();
         });
+    }
+
+    private void export() {
+        String input = inputArea.getText();
+        if (input == "") return;
+        String output = "";
+        char[] iChar = input.toCharArray();
+        for (int shift = 1; shift < 26; shift++) {
+            for (int i = 0; i < iChar.length; i++) {
+                char c = iChar[i];
+                if (c <= 'z' && c >= 'a') {
+                    c = (char) (c + 1);
+                    if (c > 'z') c = 'a';
+                    iChar[i] = c;
+                }
+            }
+            output += "Shift by " + shift + " "+ new String(iChar) + "\n\n";
+        }
+        outputArea.setText(output);
     }
 }

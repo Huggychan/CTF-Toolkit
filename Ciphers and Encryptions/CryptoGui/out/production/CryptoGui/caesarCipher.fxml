@@ -4,16 +4,15 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CaesarCipherController">
    <children>
-      <Label layoutX="37.0" layoutY="23.0" text="Input Caesar" />
-      <TextArea fx:id="inputArea" layoutX="25.0" layoutY="40.0" prefHeight="312.0" prefWidth="98.0" />
-      <ScrollPane layoutX="133.0" layoutY="40.0" prefHeight="343.0" prefWidth="448.0">
+      <Label layoutX="37.0" layoutY="23.0" text="Input Caesar" AnchorPane.bottomAnchor="360.0" AnchorPane.leftAnchor="37.0" AnchorPane.rightAnchor="496.0" AnchorPane.topAnchor="23.0" />
+      <TextArea fx:id="inputArea" layoutX="25.0" layoutY="40.0" prefHeight="312.0" prefWidth="98.0" AnchorPane.bottomAnchor="48.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="477.0" AnchorPane.topAnchor="40.0" />
+      <ScrollPane layoutX="133.0" layoutY="40.0" prefHeight="343.0" prefWidth="448.0" AnchorPane.bottomAnchor="17.0" AnchorPane.leftAnchor="133.0" AnchorPane.rightAnchor="19.0" AnchorPane.topAnchor="40.0">
          <content>
-            <TextArea fx:id="outputArea" prefHeight="200.0" prefWidth="200.0" />
+            <Label fx:id="outputArea" />
          </content>
       </ScrollPane>
-      <Button fx:id="doThingButton" layoutX="43.0" layoutY="361.0" mnemonicParsing="false" text="Do thing" />
+      <Button fx:id="doThingButton" layoutX="43.0" layoutY="361.0" mnemonicParsing="false" text="Do thing" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="43.0" AnchorPane.rightAnchor="494.0" AnchorPane.topAnchor="361.0" />
    </children>
 </AnchorPane>
