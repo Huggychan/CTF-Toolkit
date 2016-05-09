@@ -6,12 +6,15 @@ package format;
 public class Base64 extends Format{
     @Override
     public String decode(String s) {
-        int dec = 0;
-        return null;
+        byte[] bytes = s.getBytes();
+        byte[] decoded = java.util.Base64.getDecoder().decode(bytes);
+        return bytesToHexString(decoded);
     }
 
     @Override
     public String encode(String s) {
-        return null;
+        byte[] bytes = hexStringToByteArray(s);
+        byte[] encoded = java.util.Base64.getEncoder().encode(bytes);
+        return new String(encoded);
     }
 }
