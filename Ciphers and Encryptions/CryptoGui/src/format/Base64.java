@@ -6,7 +6,7 @@ package format;
 public class Base64 extends Format{
     @Override
     public String decode(String s) {
-        int dec = 
+        int dec = 0;
         return null;
     }
 

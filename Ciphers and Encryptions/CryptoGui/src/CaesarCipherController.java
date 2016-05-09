@@ -7,7 +7,6 @@ import javafx.scene.control.TextArea;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-
 /**
  * Created by bird on 5/8/2016.
  */

@@ -1,10 +1,12 @@
 /CaesarCipherController.class
+/CryptionController.class
+/ItemWindowController.class
 /Main.class
+/MainWindowController$1.class
 /MainWindowController.class
 /caesarCipher.fxml
-/main.fxml
-/MainWindowController$1.class
-/MainWindowController$2.class
-/ItemWindowController.class
+/format/
 /item.fxml
-/caesarCipher2.fxml
+/main.fxml
+/ItemWindowController$1.class
+/cryption.fxml
