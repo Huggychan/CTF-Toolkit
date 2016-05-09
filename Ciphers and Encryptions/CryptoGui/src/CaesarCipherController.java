@@ -16,7 +16,7 @@ public class CaesarCipherController implements Initializable {
     @FXML
     private Button doThingButton;
     @FXML
-    private Label outputArea;
+    private TextArea outputArea;
 
     /**
      * Initialize values

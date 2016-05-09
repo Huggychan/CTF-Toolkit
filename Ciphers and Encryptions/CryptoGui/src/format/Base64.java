@@ -17,4 +17,8 @@ public class Base64 extends Format{
         byte[] encoded = java.util.Base64.getEncoder().encode(bytes);
         return new String(encoded);
     }
+
+    public String toString() {
+        return "Base 64";
+    }
 }

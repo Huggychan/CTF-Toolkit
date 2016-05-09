@@ -6,20 +6,26 @@ package format;
 public class Binary extends Format {
     @Override
     public String decode(String s) {
-        String returnVal = "";
+        StringBuilder returnVal = new StringBuilder();
         for (int i = 0; i < s.length() / 4; i++) {
-            int decimal = Integer.parseInt(s.substring(i * 4, (i + 1) * 4 - 1));
-            returnVal += Integer.toHexString(decimal);
+            int decimal = Integer.parseInt(s.substring(i * 4, (i + 1) * 4), 2);
+            returnVal.append(Integer.toHexString(decimal));
         }
-        return returnVal;
+        return returnVal.toString();
     }
 
     @Override
     public String encode(String s) {
-        String bin = "";
+        StringBuilder bin = new StringBuilder();
         for (int i = 0; i < s.length(); i++) {
-            bin += String.format("%04s", s.charAt(i));
+            String tmp = s.charAt(i) + "";
+            int j = Integer.parseInt(tmp, 16);
+            bin.append(String.format("%4s",Integer.toBinaryString(j)).replace(' ', '0'));
         }
-        return bin;
+        return bin.toString();
+    }
+
+    public String toString() {
+        return "Binary";
     }
 }
