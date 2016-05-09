@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 
 
-<HBox fx:id="itemWindow" spacing="10" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ItemWindowController">
+<HBox fx:id="itemWindow" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ItemWindowController">
    <children>
       <TabPane fx:id="tabPane" side="LEFT" tabMinHeight="40.0" tabMinWidth="80.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
@@ -15,5 +15,7 @@
           </Tab>
         </tabs>
       </TabPane>
+      <BorderPane fx:id="content">
+      </BorderPane>
    </children>
 </HBox>
