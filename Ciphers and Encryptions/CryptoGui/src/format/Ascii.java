@@ -16,6 +16,9 @@ public class Ascii extends Format{
 
     @Override
     public String encode(String s) {
+        if (s.length() % 2 != 0) {
+            s = String.format("%" + (s.length() +(2 - s.length() % 2)) + "s", s).replace(' ', '0');
+        }
         StringBuilder ascii = new StringBuilder();
         for (int i = 0; i < s.length() / 2; i++) {
             int decimal = Integer.parseInt(s.substring(i * 2, (i + 1) * 2), 16);
@@ -31,3 +34,4 @@ public class Ascii extends Format{
 
 //TODO: note to self, binary will fail when input is not breakable into hex i.e. 6 bits will crash
 //same with ascii.
+//TODO: morse?

@@ -6,6 +6,9 @@ package format;
 public class Binary extends Format {
     @Override
     public String decode(String s) {
+        if (s.length() % 4 != 0) { //if number of things is not divisible by 4. i.e. 1 -> 0001
+            s = String.format("%" + (s.length() +(4 - s.length() % 4)) + "s", s).replace(' ', '0');
+        }
         StringBuilder returnVal = new StringBuilder();
         for (int i = 0; i < s.length() / 4; i++) {
             int decimal = Integer.parseInt(s.substring(i * 4, (i + 1) * 4), 2);
