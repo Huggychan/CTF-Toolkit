@@ -5,14 +5,21 @@ package format;
  */
 public class Binary extends Format {
     @Override
-    public String encode(String s) {
-        int decimal = Integer.parseInt(s, 2);
-        return Integer.toString(decimal, 16);
+    public String decode(String s) {
+        String returnVal = "";
+        for (int i = 0; i < s.length() / 4; i++) {
+            int decimal = Integer.parseInt(s.substring(i * 4, (i + 1) * 4 - 1));
+            returnVal += Integer.toHexString(decimal);
+        }
+        return returnVal;
     }
 
     @Override
-    public String decode(String s) {
-        int hex = Integer.parseInt(s, 16);
-        return Integer.toString(hex, 2);
+    public String encode(String s) {
+        String bin = "";
+        for (int i = 0; i < s.length(); i++) {
+            bin += String.format("%04s", s.charAt(i));
+        }
+        return bin;
     }
 }
