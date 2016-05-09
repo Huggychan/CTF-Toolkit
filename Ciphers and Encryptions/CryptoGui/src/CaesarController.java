@@ -10,13 +10,13 @@ import java.util.ResourceBundle;
 /**
  * Created by bird on 5/8/2016.
  */
-public class CaesarCipherController implements Initializable {
+public class CaesarController implements Initializable {
     @FXML
     private TextArea inputArea;
     @FXML
     private Button doThingButton;
     @FXML
-    private Label outputArea;
+    private TextArea outputArea;
 
     /**
      * Initialize values

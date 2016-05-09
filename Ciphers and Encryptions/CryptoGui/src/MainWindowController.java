@@ -30,21 +30,21 @@ public class MainWindowController implements Initializable {
 	 * @param resources Not used
 	 */
     public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
-    	
-    	selectionModel = tabPane.getSelectionModel();
-    	
-    	// Add first tab and new tab button
-    	tabPane.getTabs().add(new Tab());
+
+        selectionModel = tabPane.getSelectionModel();
+
+        // Add first tab and new tab button
+        tabPane.getTabs().add(new Tab());
         addTab();
-    	
-    	// Add event listener for new tab button
+
+        // Add event listener for new tab button
         selectionModel.selectedIndexProperty().addListener(new ChangeListener<Number>() {
             @Override
-			public void changed(ObservableValue<? extends Number> observable, Number oldTab, Number newTab) {
-				if (newTab.intValue() == tabPane.getTabs().size() - 1) {
-					addTab();
-				}
-			}
+            public void changed(ObservableValue<? extends Number> observable, Number oldTab, Number newTab) {
+                if (newTab.intValue() == tabPane.getTabs().size() - 1) {
+                    addTab();
+                }
+            }
         });
     }
     
@@ -62,8 +62,8 @@ public class MainWindowController implements Initializable {
         selectionModel.select(lastTab);
         
         // Add new tab button
-		lastTab = new Tab("+");
-    	tabPane.getTabs().add(lastTab);
-		counter++;
+        lastTab = new Tab("+");
+        tabPane.getTabs().add(lastTab);
+        counter++;
     }
 }

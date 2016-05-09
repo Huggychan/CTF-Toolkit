@@ -16,3 +16,8 @@
 /MainWindowController$3.class
 /ItemWindowController$2.class
 /ItemWindowController$3.class
+/CipherController.class
+/CaesarController.class
+/ReformatController.class
+/reformat.fxml
+/caesar.fxml

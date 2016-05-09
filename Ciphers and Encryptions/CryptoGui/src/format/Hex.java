@@ -13,4 +13,8 @@ public class Hex extends Format {
     public String encode(String s) {
         return s;
     }
+
+    public String toString() {
+        return "Hex";
+    }
 }

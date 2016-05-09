@@ -1,12 +1,14 @@
 package format;
 
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  * Created by bird on 5/8/2016.
  */
 public abstract class Format {
 
     final protected static char[] hexArray = "0123456789ABCDEF".toCharArray();
-
 
     /**
      * Decode from said format
@@ -22,6 +24,11 @@ public abstract class Format {
      */
     public abstract String encode(String s);
 
+    /**
+     * Conversion from byte array to a hex string
+     * @param b Byte array
+     * @return Hex equivalent of the bytes in a string
+     */
     protected String bytesToHexString(byte[] b) {
         char[] hexChars = new char[b.length * 2];
         for ( int j = 0; j < b.length; j++ ) {
@@ -31,6 +38,11 @@ public abstract class Format {
         return new String(hexChars);
     }
 
+    /**
+     * Conversion from hex string to byte array
+     * @param s Hex string
+     * @return Byte array
+     */
     protected byte[] hexStringToByteArray(String s) {
         int len = s.length();
         byte[] data = new byte[len / 2];
@@ -40,4 +52,7 @@ public abstract class Format {
         }
         return data;
     }
+
+    //force rewrite
+    public abstract String toString();
 }

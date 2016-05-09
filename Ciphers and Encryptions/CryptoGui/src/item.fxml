@@ -9,9 +9,9 @@
    <children>
       <TabPane fx:id="tabPane" side="LEFT" tabMinHeight="40.0" tabMinWidth="80.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-    	  <Tab fx:id="caesarCipher" text="Caesar" closable="false">
+    	  <Tab fx:id="caesar" text="Caesar" closable="false">
           </Tab>
-          <Tab fx:id="cryption" text="Encoding" closable="false">
+          <Tab fx:id="reformat" text="Encoding" closable="false">
           </Tab>
         </tabs>
       </TabPane>
