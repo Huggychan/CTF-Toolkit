@@ -3,9 +3,12 @@ import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.control.SingleSelectionModel;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
+import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.net.URL;
@@ -51,7 +54,11 @@ public class MainWindowController implements Initializable {
     	lastTab.setText("Tab " + counter);
 		lastTab.setClosable(true);
 		try {
-			lastTab.setContent(FXMLLoader.load(getClass().getResource("item.fxml")));
+			VBox vbox = new VBox(10);
+			Node item = FXMLLoader.load(getClass().getResource("item.fxml"));
+			vbox.getChildren().add(item);
+			VBox.setMargin(item, new Insets(25, 0, 0, 0));
+			lastTab.setContent(vbox);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

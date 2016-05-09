@@ -1,10 +1,12 @@
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.SingleSelectionModel;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 
 import java.io.IOException;
@@ -20,7 +22,7 @@ public class ItemWindowController implements Initializable {
 	private TabPane tabPane;
 	private SingleSelectionModel<Tab> selectionModel;
 	
-	private AnchorPane selectedItem;
+	private Node selectedItem;
 	
 	/**
 	 * Initializes the sub tab system
@@ -39,5 +41,22 @@ public class ItemWindowController implements Initializable {
 			e.printStackTrace();
 		}
     	itemWindow.getChildren().add(selectedItem);
+    	
+    	// Add event listener for tabs
+        selectionModel.selectedItemProperty().addListener(new ChangeListener<Tab>() {
+            @Override
+			public void changed(ObservableValue<? extends Tab> observable, Tab oldTab, Tab newTab) {
+				if(newTab == oldTab) {
+					return;
+				}
+				itemWindow.getChildren().remove(selectedItem);
+		    	try {
+					selectedItem = FXMLLoader.load(getClass().getResource(newTab.getId() + ".fxml"));
+		    	} catch (IOException e) {
+					e.printStackTrace();
+				}
+		    	itemWindow.getChildren().add(selectedItem);
+			}
+        });
     }
 }
