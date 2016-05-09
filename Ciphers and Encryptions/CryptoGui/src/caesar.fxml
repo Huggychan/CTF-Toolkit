@@ -4,7 +4,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CaesarCipherController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CaesarController">
    <children>
       <Label layoutX="37.0" layoutY="14.0" prefHeight="17.0" prefWidth="74.0" text="Input Caesar" />
       <TextArea fx:id="inputArea" layoutX="25.0" layoutY="40.0" prefHeight="312.0" prefWidth="98.0" wrapText="true" />

@@ -5,13 +5,13 @@
 <?import javafx.scene.layout.*?>
 
 
-<HBox fx:id="itemWindow" fillHeight="true" spacing="10" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ItemWindowController">
+<HBox fx:id="itemWindow" spacing="10" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ItemWindowController">
    <children>
-      <TabPane fx:id="tabPane" side="LEFT" layoutX="121.0" layoutY="46.0" tabMinHeight="40.0" tabClosingPolicy="SELECTED_TAB" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <TabPane fx:id="tabPane" side="LEFT" tabMinHeight="40.0" tabMinWidth="80.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-    	  <Tab fx:id="caesarCipher" text="Caesar" closable="false">
+    	  <Tab fx:id="caesar" text="Caesar" closable="false">
           </Tab>
-          <Tab fx:id="cryption" text="Encoding" closable="false">
+          <Tab fx:id="reformat" text="Encoding" closable="false">
           </Tab>
         </tabs>
       </TabPane>
