@@ -12,8 +12,10 @@ public class Main extends Application {
             final Parent root = FXMLLoader.load(getClass().getResource("main.fxml"));
             
             stage.setTitle("CTF Toolkit");
-            stage.setScene(new Scene(root));
+            stage.setScene(new Scene(root, 720, 540));
             stage.show();
+            stage.setMinHeight(stage.getHeight());
+            stage.setMinWidth(stage.getWidth());
         } catch(Exception e) {
             e.printStackTrace();
         }
