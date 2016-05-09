@@ -18,7 +18,7 @@ public class CaesarCipherController implements Initializable {
     @FXML
     private TextArea outputArea;
 
-    public void initialize(URL fxmlFileLocation,ResourceBundle resources) {
+    public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
         doThingButton.setOnAction(event -> {
             System.out.println("command");
         });
