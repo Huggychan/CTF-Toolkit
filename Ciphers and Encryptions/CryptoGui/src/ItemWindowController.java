@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.control.SingleSelectionModel;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 
 import java.io.IOException;
@@ -52,6 +53,10 @@ public class ItemWindowController implements Initializable {
 				itemWindow.getChildren().remove(selectedItem);
 		    	try {
 					selectedItem = FXMLLoader.load(getClass().getResource(newTab.getId() + ".fxml"));
+					AnchorPane.setTopAnchor(selectedItem, 0.0);
+					AnchorPane.setBottomAnchor(selectedItem, 0.0);
+					AnchorPane.setLeftAnchor(selectedItem, 0.0);
+					AnchorPane.setRightAnchor(selectedItem, 0.0);
 		    	} catch (IOException e) {
 					e.printStackTrace();
 				}

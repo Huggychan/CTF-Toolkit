@@ -7,17 +7,16 @@ import javafx.stage.Stage;
 public class Main extends Application {
 
     @Override
-    public void start(Stage primaryStage) {
-        Parent root = null;
+    public void start(Stage stage) {
         try {
-            root = FXMLLoader.load(getClass().getResource("main.fxml"));
+            final Parent root = FXMLLoader.load(getClass().getResource("main.fxml"));
+            
+            stage.setTitle("CTF Toolkit");
+            stage.setScene(new Scene(root));
+            stage.show();
         } catch(Exception e) {
             e.printStackTrace();
         }
-        primaryStage.setTitle("If You're Not First, You're Last");
-        Scene scene = new Scene(root, 300, 275);
-        primaryStage.setScene(scene);
-        primaryStage.show();
     }
 
     public static void main(String[] args) {
