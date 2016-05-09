@@ -21,9 +21,9 @@ public class CaesarCipherController implements Initializable {
     private Label outputArea;
 
     /**
-     * initilalize values
-     * @param fxmlFileLocation file location
-     * @param resources resources
+     * Initialize values
+     * @param fxmlFileLocation File location
+     * @param resources Resources
      */
     public void initialize(URL fxmlFileLocation,ResourceBundle resources) {
         doThingButton.setOnAction(event -> {
