@@ -55,7 +55,7 @@ public class MainWindowController implements Initializable {
     	lastTab.setText("Tab " + counter);
 		lastTab.setClosable(true);
 		try {
-			mainWindow.setCenter(FXMLLoader.load(getClass().getResource("item.fxml")));
+			lastTab.setContent(FXMLLoader.load(getClass().getResource("item.fxml")));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
