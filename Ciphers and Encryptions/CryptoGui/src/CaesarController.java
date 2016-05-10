@@ -42,8 +42,9 @@ public class CaesarController implements Initializable {
                     iChar[i] = c;
                 }
             }
-            output += "Shift by " + shift + " "+ new String(iChar) + "\n\n";
+            output += "Shift by " + shift + ":\n"+ new String(iChar) + "\n\n";
         }
+        output = output.substring(0, output.length() - 2);
         outputArea.setText(output);
     }
 }
