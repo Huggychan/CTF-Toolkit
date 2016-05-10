@@ -5,15 +5,23 @@
 <?import javafx.scene.layout.*?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ReformatController">
-   <children>
-      <Button fx:id="convert" layoutX="271.0" layoutY="362.0" mnemonicParsing="false" text="Convert" />
-      <ChoiceBox fx:id="from" layoutX="53.0" layoutY="362.0" prefWidth="150.0" />
-      <ChoiceBox fx:id="to" layoutX="397.0" layoutY="362.0" prefWidth="150.0" />
-      <TextArea fx:id="inputArea" layoutX="14.0" layoutY="26.0" prefHeight="331.0" prefWidth="284.0" wrapText="true" />
-      <ScrollPane layoutX="298.0" layoutY="27.0" prefHeight="331.0" prefWidth="284.0">
-         <content>
-            <TextArea fx:id="outputArea" prefHeight="331.0" prefWidth="284.0" wrapText="true" />
-         </content>
-      </ScrollPane>
-   </children>
+    <VBox fillWidth="true" spacing="10" prefHeight="400.0" prefWidth="600.0">
+        <HBox>
+            <Label alignment="CENTER" maxWidth="Infinity" HBox.hgrow="ALWAYS" text="Input" />
+            <Label alignment="CENTER" maxWidth="Infinity" HBox.hgrow="ALWAYS" text="Output" />
+        </HBox>
+        <HBox fillHeight="true" VBox.vgrow="ALWAYS">
+            <ScrollPane maxWidth="Infinity" fitToWidth="true" fitToHeight="true">
+                <TextArea fx:id="inputArea" wrapText="true" />
+        	</ScrollPane>
+    		<ScrollPane maxWidth="Infinity" fitToWidth="true" fitToHeight="true">
+                <TextArea fx:id="outputArea" wrapText="true" />
+        	</ScrollPane>
+        </HBox>
+        <HBox fillHeight="true">
+    		<ChoiceBox fx:id="from" maxWidth="Infinity" HBox.hgrow="ALWAYS" />
+    		<Button fx:id="convert" maxWidth="Infinity" HBox.hgrow="ALWAYS" mnemonicParsing="false" text="Convert" />
+    	    <ChoiceBox fx:id="to" maxWidth="Infinity" HBox.hgrow="ALWAYS" />
+        </HBox>
+    </VBox>
 </AnchorPane>
