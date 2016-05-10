@@ -1,5 +1,7 @@
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -24,7 +26,7 @@ public class MainWindowController implements Initializable {
 	private SingleSelectionModel<Tab> selectionModel;
 	
 	/**
-	 * Initializes the super tab system // TODO Store tab cache
+	 * Initializes the super tab system // TODO Prevent closing last tab
 	 * 
 	 * @param fxmlFileLocation Location of FXML file representing the layout
 	 * @param resources Not used
@@ -54,6 +56,12 @@ public class MainWindowController implements Initializable {
     	Tab lastTab = tabPane.getTabs().get(tabPane.getTabs().size() - 1);
     	lastTab.setText("Tab " + counter);
 		lastTab.setClosable(true);
+		lastTab.setOnClosed(new EventHandler<Event>() {
+            @Override
+            public void handle(Event arg0) {
+                updateTabs();
+            }
+		});
 		try {
 			lastTab.setContent(FXMLLoader.load(getClass().getResource("item.fxml")));
 		} catch (IOException e) {
@@ -65,5 +73,30 @@ public class MainWindowController implements Initializable {
         lastTab = new Tab("+");
         tabPane.getTabs().add(lastTab);
         counter++;
+
+        // Allow tabs to be closed if there is at least two
+        if(this.counter == 3) {
+            tabPane.setTabClosingPolicy(TabPane.TabClosingPolicy.SELECTED_TAB);
+        }
+    }
+    
+    public void updateTabs() {
+
+        this.counter--;
+        selectionModel.select(0);
+        
+        // Prevent last tab from being closed
+        if(this.counter == 2) {
+            tabPane.setTabClosingPolicy(TabPane.TabClosingPolicy.UNAVAILABLE);
+        }
+        
+         // Reset tab text
+        int counter = 1;
+        for(Tab current : tabPane.getTabs()) {
+            if(!current.getText().equals("+")) {
+                current.setText("Tab " + counter);
+                counter++;
+            }
+        }
     }
 }
