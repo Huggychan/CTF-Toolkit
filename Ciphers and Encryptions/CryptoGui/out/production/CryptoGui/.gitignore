@@ -1,13 +1,16 @@
 /CaesarController.class
+/ConversionController.class
 /ItemWindowController$1.class
 /ItemWindowController$2.class
 /ItemWindowController$3.class
 /ItemWindowController.class
 /Main.class
 /MainWindowController$1.class
+/MainWindowController$2.class
 /MainWindowController.class
 /ReformatController.class
 /caesar.fxml
+/conversion.fxml
 /format/
 /item.fxml
 /main.fxml
