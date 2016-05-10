@@ -20,7 +20,7 @@
         </HBox>
         <HBox fillHeight="true">
     		<ChoiceBox fx:id="from" maxWidth="Infinity" HBox.hgrow="ALWAYS" />
-    		<Button fx:id="convert" maxWidth="Infinity" HBox.hgrow="ALWAYS" mnemonicParsing="false" text="Convert" />
+    		<Button fx:id="convert" alignment="CENTER" maxWidth="Infinity" HBox.hgrow="ALWAYS" mnemonicParsing="false" text="Convert" />
     	    <ChoiceBox fx:id="to" maxWidth="Infinity" HBox.hgrow="ALWAYS" />
         </HBox>
     </VBox>

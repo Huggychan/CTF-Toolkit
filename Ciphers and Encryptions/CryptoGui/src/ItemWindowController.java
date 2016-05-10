@@ -63,22 +63,26 @@ public class ItemWindowController implements Initializable {
         selectionModel.selectedItemProperty().addListener(new ChangeListener<Tab>() {
             @Override
 			public void changed(ObservableValue<? extends Tab> observable, Tab oldTab, Tab newTab) {
-				if(newTab == oldTab) {
-					return;
-				}
+                
+                // Initialize new tab contents
 		    	try {
 					selectedItem = FXMLLoader.load(getClass().getResource(newTab.getId() + ".fxml"));
-					AnchorPane.setTopAnchor(selectedItem, 0.0);
-					AnchorPane.setBottomAnchor(selectedItem, 0.0);
-					AnchorPane.setLeftAnchor(selectedItem, 0.0);
-					AnchorPane.setRightAnchor(selectedItem, 0.0);
-	            	double scale = (Math.min(itemWindow.getWidth(), itemWindow.getHeight() * aspectRatio) - margin * 2) / defaultWidth;
-	                selectedItem.setScaleX(scale);
-	                selectedItem.setScaleY(scale);
 		    	} catch (IOException e) {
 					e.printStackTrace();
 				}
+                AnchorPane.setTopAnchor(selectedItem, 0.0);
+                AnchorPane.setBottomAnchor(selectedItem, 0.0);
+                AnchorPane.setLeftAnchor(selectedItem, 0.0);
+                AnchorPane.setRightAnchor(selectedItem, 0.0);
+                double scale = (Math.min(itemWindow.getWidth(), itemWindow.getHeight() * aspectRatio) - margin * 2) / defaultWidth;
+                selectedItem.setScaleX(scale);
+                selectedItem.setScaleY(scale);
 		        content.setCenter(selectedItem);
+		        
+		        // Update super tab name - TODO getSelectedItem() only returns index 0 for some reason
+		        TabPane pane = (TabPane)itemWindow.getParent().getParent();
+		        Tab tab = pane.getTabs().get(pane.getSelectionModel().getSelectedIndex());
+		        tab.setText(tab.getText().replace(oldTab.getText(), newTab.getText()));
 			}
         });
         
