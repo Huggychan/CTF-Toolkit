@@ -5,14 +5,19 @@
 <?import javafx.scene.layout.*?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CaesarController">
-   <children>
-      <Label layoutX="37.0" layoutY="14.0" prefHeight="17.0" prefWidth="74.0" text="Input Caesar" />
-      <TextArea fx:id="inputArea" layoutX="25.0" layoutY="40.0" prefHeight="312.0" prefWidth="98.0" wrapText="true" />
-      <ScrollPane layoutX="133.0" layoutY="40.0" prefHeight="343.0" prefWidth="448.0">
-         <content>
-            <TextArea fx:id="outputArea" prefHeight="343.0" prefWidth="448.0" wrapText="true" />
-         </content>
-      </ScrollPane>
-      <Button fx:id="doThingButton" layoutX="25.0" layoutY="361.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="98.0" text="Do thing" />
-   </children>
+    <HBox fillHeight="true" spacing="10" prefHeight="400.0" prefWidth="600.0">
+        <VBox fillWidth="true" spacing="10" prefWidth="200.0">
+            <Label alignment="CENTER" maxWidth="Infinity" text="Input" />
+            <ScrollPane VBox.vgrow="ALWAYS" fitToWidth="true" fitToHeight="true">
+                <TextArea fx:id="inputArea" wrapText="true" />
+            </ScrollPane>
+            <Button fx:id="doThingButton" maxWidth="Infinity" mnemonicParsing="false" text="Do thing" />
+        </VBox>
+        <VBox fillWidth="true" spacing="10" prefWidth="400.0">
+            <Label alignment="CENTER" maxWidth="Infinity" text="Output" />
+            <ScrollPane VBox.vgrow="ALWAYS" fitToWidth="true" fitToHeight="true">
+                <TextArea fx:id="outputArea" wrapText="true" />
+            </ScrollPane>
+        </VBox>
+    </HBox>
 </AnchorPane>
