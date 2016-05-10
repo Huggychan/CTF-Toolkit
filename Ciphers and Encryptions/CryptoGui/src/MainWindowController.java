@@ -9,14 +9,13 @@ import javafx.scene.control.SingleSelectionModel;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class MainWindowController implements Initializable {
-	
-	private int counter = 1;
 	
 	@FXML
 	private BorderPane mainWindow;
@@ -25,8 +24,10 @@ public class MainWindowController implements Initializable {
 	private TabPane tabPane;
 	private SingleSelectionModel<Tab> selectionModel;
 	
+	private boolean busy = false; // TODO Maybe improve
+	
 	/**
-	 * Initializes the super tab system // TODO Prevent closing last tab
+	 * Initializes the super tab system
 	 * 
 	 * @param fxmlFileLocation Location of FXML file representing the layout
 	 * @param resources Not used
@@ -35,68 +36,78 @@ public class MainWindowController implements Initializable {
 
         selectionModel = tabPane.getSelectionModel();
 
-        // Add first tab and new tab button
-        tabPane.getTabs().add(new Tab());
+        // Add new tab button and first tab
+        tabPane.getTabs().add(new Tab("+"));
         addTab();
 
         // Add event listener for new tab button
         selectionModel.selectedIndexProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observable, Number oldTab, Number newTab) {
-                if (newTab.intValue() == tabPane.getTabs().size() - 1) {
+                if(!busy && newTab.intValue() == 0) {
                     addTab();
                 }
             }
         });
     }
     
+    /**
+     * Creates a new tab.
+     */
     public void addTab() {
-    	
+
     	// Initialize tab
-    	Tab lastTab = tabPane.getTabs().get(tabPane.getTabs().size() - 1);
-    	lastTab.setText("Tab " + counter);
-		lastTab.setClosable(true);
-		lastTab.setOnClosed(new EventHandler<Event>() {
+    	Tab newTab = new Tab("  Caesar " + tabPane.getTabs().size() + "  ");
+		newTab.setClosable(true);
+		newTab.setOnCloseRequest(new EventHandler<Event>() {
             @Override
-            public void handle(Event arg0) {
+            public void handle(Event event) {
+                busy = true;
+            }
+        });
+		newTab.setOnClosed(new EventHandler<Event>() {
+            @Override
+            public void handle(Event event) {
                 updateTabs();
+                busy = false;
             }
 		});
 		try {
-			lastTab.setContent(FXMLLoader.load(getClass().getResource("item.fxml")));
+			newTab.setContent(FXMLLoader.load(getClass().getResource("item.fxml")));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-        selectionModel.select(lastTab);
-        
-        // Add new tab button
-        lastTab = new Tab("+");
-        tabPane.getTabs().add(lastTab);
-        counter++;
+        tabPane.getTabs().add(newTab);
+        selectionModel.selectLast();
 
-        // Allow tabs to be closed if there is at least two
-        if(this.counter == 3) {
+        // Allow tabs to be closed if there are at least two tabs
+        if(tabPane.getTabs().size() == 3) {
             tabPane.setTabClosingPolicy(TabPane.TabClosingPolicy.SELECTED_TAB);
         }
     }
     
+    /**
+     * Does cleanup work when a tab is closed.
+     */
     public void updateTabs() {
 
-        this.counter--;
-        selectionModel.select(0);
-        
         // Prevent last tab from being closed
-        if(this.counter == 2) {
+        if(tabPane.getTabs().size() == 2) {
             tabPane.setTabClosingPolicy(TabPane.TabClosingPolicy.UNAVAILABLE);
         }
         
-         // Reset tab text
+        // Reset tab text
         int counter = 1;
         for(Tab current : tabPane.getTabs()) {
             if(!current.getText().equals("+")) {
-                current.setText("Tab " + counter);
+                TabPane pane = (TabPane) ((HBox)current.getContent()).getChildren().get(0);
+                current.setText("  " + pane.getSelectionModel().getSelectedItem().getText() + " " + counter + "  ");
                 counter++;
             }
+        }
+        
+        if(selectionModel.getSelectedIndex() == 0) {
+            selectionModel.select(1);
         }
     }
 }
