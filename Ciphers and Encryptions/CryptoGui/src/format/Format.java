@@ -1,7 +1,5 @@
 package format;
 
-import java.util.LinkedList;
-import java.util.List;
 
 /**
  * Created by bird on 5/8/2016.
@@ -44,6 +42,9 @@ public abstract class Format {
      * @return Byte array
      */
     protected byte[] hexStringToByteArray(String s) {
+        if (s.length() % 2 != 0) {
+            s = String.format("%" + (s.length() + 1) + "s", s).replace(" ", "0");
+        }
         int len = s.length();
         byte[] data = new byte[len / 2];
         for (int i = 0; i < len; i += 2) {
@@ -52,7 +53,6 @@ public abstract class Format {
         }
         return data;
     }
-
     //force rewrite
     public abstract String toString();
 }

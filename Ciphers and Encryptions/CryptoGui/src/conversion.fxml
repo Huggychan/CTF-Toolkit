@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ConversionController">
+   <children>
+      <Button fx:id="convert" layoutX="34.0" layoutY="361.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="107.0" text="Convert" />
+      <TextArea fx:id="inputArea" layoutX="34.0" layoutY="31.0" prefHeight="200.0" prefWidth="200.0" wrapText="true" />
+      <Label layoutX="34.0" layoutY="14.0" text="Input" />
+      <Label layoutX="35.0" layoutY="246.0" text="Conversion Pairings" />
+      <TextArea fx:id="pairings" layoutX="34.0" layoutY="263.0" prefHeight="80.0" prefWidth="200.0" wrapText="true" />
+      <TextArea fx:id="outputArea" layoutX="265.0" layoutY="31.0" prefHeight="314.0" prefWidth="311.0" wrapText="true" />
+      <Label layoutX="157.0" layoutY="353.0" prefHeight="33.0" prefWidth="420.0" text="Pairings take the form &lt;orig&gt;,&lt;convert&gt;; i.e. a,bc;c,q; on ac goes to bqq" />
+   </children>
+</AnchorPane>

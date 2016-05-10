@@ -16,15 +16,15 @@ import java.util.ResourceBundle;
  */
 public class ReformatController implements Initializable {
     @FXML
-    TextArea inputArea;
+    private TextArea inputArea;
     @FXML
-    TextArea outputArea;
+    private TextArea outputArea;
     @FXML
-    ChoiceBox<Format> from;
+    private ChoiceBox<Format> from;
     @FXML
-    ChoiceBox<Format> to;
+    private ChoiceBox<Format> to;
     @FXML
-    Button convert;
+    private Button convert;
 
     /**
      * Initialize values
@@ -32,7 +32,7 @@ public class ReformatController implements Initializable {
      * @param resources Resources
      */
     public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
-        List<Format> subClasses = Arrays.asList(new Binary(), new Hex(), new Base64(), new Ascii());
+        List<Format> subClasses = Arrays.asList(new Binary(), new Hex(), new Base64(), new Ascii(), new Morse());
         from.setItems(FXCollections.observableArrayList(subClasses));
         from.getSelectionModel().selectFirst();
         to.setItems(FXCollections.observableArrayList(subClasses));
@@ -44,7 +44,7 @@ public class ReformatController implements Initializable {
     }
 
     private void conversion() {
-        if (inputArea.getText() == "") {
+        if (inputArea.getText().equals("")) {
             return;
         }
         String s = inputArea.getText();

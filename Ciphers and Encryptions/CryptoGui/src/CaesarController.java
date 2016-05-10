@@ -30,7 +30,7 @@ public class CaesarController implements Initializable {
 
     private void export() {
         String input = inputArea.getText();
-        if (input == "") return;
+        if (input.equals("")) return;
         String output = "";
         char[] iChar = input.toCharArray();
         for (int shift = 1; shift < 26; shift++) {
